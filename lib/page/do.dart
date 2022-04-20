@@ -1,5 +1,3 @@
-//import 'dart:ffi';
-
 import 'package:chat/home.dart';
 import 'package:chat/page/addjadwal.dart';
 import 'package:chat/page/inJadwal.dart';
@@ -30,7 +28,7 @@ class _DoState extends State<Do> {
     return Scaffold(
       backgroundColor: Coll.abuu,
       appBar: AppBar(
-      backgroundColor: primary,
+        backgroundColor: primary,
         //backgroundColor: utama,
         centerTitle: true,
         title: const Text('do'),
@@ -108,34 +106,33 @@ class _DoState extends State<Do> {
       bottomNavigationBar: GlassmorphicContainer(
         width: double.infinity,
         height: 65,
-       // borderRadius: borderRadius.c(30),
-       linearGradient: LinearGradient(
-         begin: Alignment.topCenter,
-         end: Alignment.bottomCenter,
-         colors: [
-           Constants.kWhiteColor.withOpacity(0.1),
-           Constants.kWhiteColor.withOpacity(0.1),
-           
-         ],
-       ), 
-       blur: 30, 
-       borderGradient: const LinearGradient(
-         begin: Alignment.topCenter,
-         end: Alignment.bottomCenter,
-         colors: [
-           Constants.kPinkColor,
-           Constants.kGreenColor,
-         ],
-       ), 
-       borderRadius: 0, border: 0,
-       child: BottomAppBar(
-         color: Colors.transparent,
-         notchMargin: 4,
-         elevation: 0,
-         child: Row(
-           //padding: const EdgeInsets.symmetric(horizontal: 20),
-           mainAxisAlignment: MainAxisAlignment.spaceAround,
-           //crossAxisAlignment: CrossAxisAlignment.end,
+        // borderRadius: borderRadius.c(30),
+        linearGradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Constants.kWhiteColor.withOpacity(0.1),
+            Constants.kWhiteColor.withOpacity(0.1),
+          ],
+        ),
+        blur: 30,
+        borderGradient: const LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Constants.kPinkColor,
+            Constants.kGreenColor,
+          ],
+        ),
+        borderRadius: 0, border: 0,
+        child: BottomAppBar(
+          color: Colors.transparent,
+          notchMargin: 4,
+          elevation: 0,
+          child: Row(
+            //padding: const EdgeInsets.symmetric(horizontal: 20),
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               //SizedBox(width: 20),
               Expanded(
@@ -143,23 +140,25 @@ class _DoState extends State<Do> {
                   onPressed: () {
                     Navigator.of(context).pushNamed(Home.routeName);
                   },
-                  icon: Image.asset('assets/img/modern-home.png', 
-                     width: 30, height: 30,       
-                  ),
+                  icon: Image.asset(
+                    'assets/img/modern-home.png',
+                    width: 30,
+                    height: 30,
                   ),
                 ),
-              
+              ),
+
               Expanded(
                 child: IconButton(
                   onPressed: () {
                     Navigator.of(context).pushNamed(Jadwal.routeName);
                   },
-                  
-                  icon: Image.asset('assets/img/analytics.png', 
-                     semanticLabel: 'Analytics',
-                     width: 30, height: 30,       
+                  icon: Image.asset(
+                    'assets/img/analytics.png',
+                    semanticLabel: 'Analytics',
+                    width: 30,
+                    height: 30,
                   ),
-                  
                 ),
               ),
               Expanded(
@@ -167,8 +166,10 @@ class _DoState extends State<Do> {
                   onPressed: () {
                     Navigator.of(context).pushNamed(Do.routeName);
                   },
-                  icon: Image.asset('assets/img/writing.png', 
-                     width: 30, height: 30,       
+                  icon: Image.asset(
+                    'assets/img/writing.png',
+                    width: 30,
+                    height: 30,
                   ),
                 ),
               ),
@@ -181,14 +182,16 @@ class _DoState extends State<Do> {
                   //   Icons.settings,
                   //   color: Constants.kPinkColor,
                   // ),
-                  icon: Image.asset('assets/img/setting.png', 
-                     width: 30, height: 30,       
+                  icon: Image.asset(
+                    'assets/img/setting.png',
+                    width: 30,
+                    height: 30,
                   ),
                 ),
               ),
             ],
-         ),
-       ),
+          ),
+        ),
       ),
     );
   }
