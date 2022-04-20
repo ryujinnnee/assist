@@ -22,7 +22,7 @@ class _JadwalState extends State<Jadwal> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primary,
-        title: const Text('Jadwal'),
+        title: const Text('Jadwall'),
         actions: [
           IconButton(
             icon: const Icon(Icons.notifications),
