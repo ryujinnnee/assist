@@ -7,15 +7,22 @@ import 'package:chat/page/notip.dart';
 import 'package:chat/page/setting.dart';
 import 'package:chat/page/todo.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
+  bool isUser = false;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,8 +33,8 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: "/",
       routes: {
-     //   "/home": (context) => const Home(),
-    //    "/setting": (context) => const Setting(),
+        //   "/home": (context) => const Home(),
+        //    "/setting": (context) => const Setting(),
         // "/jadwal": (context) => const Jadwal(),
         // "/addjadwal": (context) => const Addjadwal(),
         // "/injadwal": (context) => const Jadwal(),
@@ -42,5 +49,12 @@ class MyApp extends StatelessWidget {
         Tugass.routeName: (context) => const Tugass(),
       },
     );
+  }
+
+  void _initCheck() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      isUser = prefs.getBool("isUser") ?? false;
+    });
   }
 }
