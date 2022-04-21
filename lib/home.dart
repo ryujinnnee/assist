@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:chat/log/tugas.dart';
+import 'package:chat/log/tugas2.dart';
 import 'package:chat/page/addjadwal.dart';
 import 'package:chat/page/do.dart';
 import 'package:chat/page/inJadwal.dart';
@@ -467,7 +468,7 @@ class _HomeState extends State<Home> {
             //   labelStyle: TextTheme(fontSize: 18.0),
             onTap: () => Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const Tugass()),
+              MaterialPageRoute(builder: (context) => const Tugas2()),
             ),
           ),
           SpeedDialChild(
