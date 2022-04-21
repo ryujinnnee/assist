@@ -54,7 +54,7 @@ class _HomeState extends State<Home> {
       );
     }).toList(),
     options: CarouselOptions(
-      autoPlay: false,
+      autoPlay: true,
       aspectRatio: 2.0,
       enlargeCenterPage: true,
       viewportFraction: 0.9,
