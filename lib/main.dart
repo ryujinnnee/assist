@@ -1,4 +1,5 @@
 import 'package:chat/home.dart';
+import 'package:chat/log/tugas.dart';
 import 'package:chat/page/addjadwal.dart';
 import 'package:chat/page/do.dart';
 import 'package:chat/page/inJadwal.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
         Todo.routeName: (context) => const Todo(),
         Do.routeName: (context) => const Do(),
         Notip.routeName: (context) => const Notip(),
+        Tugass.routeName: (context) => const Tugass(),
       },
     );
   }

@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:chat/log/tugas.dart';
 import 'package:chat/page/addjadwal.dart';
 import 'package:chat/page/do.dart';
 import 'package:chat/page/inJadwal.dart';
@@ -34,8 +35,9 @@ class _HomeState extends State<Home> {
 
      final List<String> imgSlider = [
     'elektronik.jpeg',
-    'fashion.jpg',
+    //'fashion.jpg',
     'food.jpg',
+    'elektronik.jpeg',
     'rendang.jpg',
     'sport.jpg'
   ];
@@ -47,8 +49,9 @@ class _HomeState extends State<Home> {
           borderRadius: const BorderRadius.all(Radius.circular(10)),
           child: Image.asset(
             'assets/slider/${fileImage}',
-            width: 500,
-            fit: BoxFit.cover,
+            width: 350,
+            height: 100,
+            fit: BoxFit.fitWidth,
           ),
         ),
       );
@@ -360,7 +363,7 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
-            const SizedBox(height: 15),
+            const SizedBox(height: 20),
             autoPlayImage,
             // const SizedBox(height: 35),
             // Container(
@@ -460,11 +463,11 @@ class _HomeState extends State<Home> {
           SpeedDialChild(
             child: const Icon(Icons.keyboard_voice),
             backgroundColor: Colors.green,
-            label: 'setting',
+            label: 'Tugas',
             //   labelStyle: TextTheme(fontSize: 18.0),
             onTap: () => Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const Setting()),
+              MaterialPageRoute(builder: (context) => const Tugass()),
             ),
           ),
           SpeedDialChild(
