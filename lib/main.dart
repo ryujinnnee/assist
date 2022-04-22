@@ -6,6 +6,7 @@ import 'package:chat/page/inJadwal.dart';
 import 'package:chat/page/notip.dart';
 import 'package:chat/page/setting.dart';
 import 'package:chat/page/todo.dart';
+import 'package:chat/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -23,13 +24,20 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   bool isUser = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _initCheck();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Assist',
       debugShowCheckedModeBanner: false,
       home: const Scaffold(
-        body: Home(),
+        body: Splash(isUser: true,), //Home(),
       ),
       initialRoute: "/",
       routes: {
@@ -53,8 +61,11 @@ class _MyAppState extends State<MyApp> {
 
   void _initCheck() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      isUser = prefs.getBool("isUser") ?? false;
-    });
+    if(prefs.getBool("isUser") != null){
+      setState(() {
+        isUser = prefs.getBool("isUser")!;
+      });
+    
+    }
   }
 }

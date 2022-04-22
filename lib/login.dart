@@ -1,4 +1,6 @@
 import 'package:chat/home.dart';
+import 'package:chat/home2.dart';
+import 'package:chat/log/dummy_data.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -67,9 +69,10 @@ class _LoginState extends State<Login> {
       //   Navigator.of(context).pushReplacementNamed(Home.routeName);
       // });
       Future.delayed(Duration(seconds: 2), () {
-        if (_email.text == 'admin@a.com' && _password.text == '12345') {
+        if (_email.text == 'admin@a.com' && _password.text == '1233') {
+          //DummyData.data.password
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => const Home()));
+              context, MaterialPageRoute(builder: (context) => const Home2()));
         }
       });
     }
