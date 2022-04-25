@@ -1,4 +1,7 @@
+import 'package:chat/log/login.dart';
+import 'package:chat/splash.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Home2 extends StatefulWidget {
   const Home2({Key? key}) : super(key: key);
@@ -8,7 +11,7 @@ class Home2 extends StatefulWidget {
 }
 
 class _Home2State extends State<Home2> {
-  bool _switch = false;
+  final bool _switch = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,9 +20,7 @@ class _Home2State extends State<Home2> {
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
-            onPressed: () {
-              //  Navigator.of(context).pushNamed('/notip');
-            },
+             onPressed: _logOut,//(){} ,  //_logOut,
           ),
         ],
       ),
@@ -43,5 +44,12 @@ class _Home2State extends State<Home2> {
         ],
       ),
     );
+  }
+
+  void _logOut() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    pref.remove("isUser");
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (c) => const Splash(isUser: true,)));
+  //   Navigator.pushReplacement(context, MaterialPageRoute(builder: (c) => const Login()));
   }
 }

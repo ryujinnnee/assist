@@ -1,4 +1,3 @@
-import 'package:chat/home.dart';
 import 'package:chat/home2.dart';
 import 'package:chat/log/dummy_data.dart';
 import 'package:flutter/material.dart';
@@ -12,8 +11,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  TextEditingController _email = TextEditingController();
-  TextEditingController _password = TextEditingController();
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
   bool isLoading = false;
   @override
   Widget build(BuildContext context) {
@@ -47,10 +46,10 @@ class _LoginState extends State<Login> {
                     SizedBox(height: 20),
                     RaisedButton(
                       child: const Text('Login'),
-                      onPressed: () {
+                      onPressed: _login,//() {
                         // Navigator.of(context).pushNamed('/home');
-                        _login();
-                      },
+                        
+                    //  },
                     ),
                   ],
                 )),
@@ -58,7 +57,7 @@ class _LoginState extends State<Login> {
   }
 
   void _login() async {
-    if (_email.text.isNotEmpty || _password.text.isNotEmpty) {
+    if (_email.text.isNotEmpty || _password.text.isEmpty) {
       setState(() {
         isLoading = true;
       });
@@ -68,7 +67,7 @@ class _LoginState extends State<Login> {
       //   prefs.setString('password', _password.text);
       //   Navigator.of(context).pushReplacementNamed(Home.routeName);
       // });
-      Future.delayed(Duration(seconds: 2), () {
+      Future.delayed(Duration(seconds: 1), () {
         if (_email.text == 'admin@a.com' && _password.text == '1233') {
           //DummyData.data.password
           Navigator.pushReplacement(

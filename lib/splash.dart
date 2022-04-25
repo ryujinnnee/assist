@@ -1,6 +1,7 @@
 
 import 'package:chat/home2.dart';
 import 'package:chat/log/login.dart';
+import 'package:chat/login2.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -20,7 +21,7 @@ class _SplashState extends State<Splash> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => widget.isUser ? const Home2() : const Login()));
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => widget.isUser ? const Home2() : const Login2()));
     });
   }
 
@@ -28,7 +29,7 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('Loading..'),
+        child: Text('splash..'),
       ),
     );
   }
