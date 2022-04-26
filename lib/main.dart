@@ -1,7 +1,7 @@
 import 'package:chat/home.dart';
-import 'package:chat/log/login.dart';
 import 'package:chat/log/tugas.dart';
-import 'package:chat/login2.dart';
+//import 'package:chat/login2.dart';
+import 'package:chat/masuk.dart';
 import 'package:chat/page/addjadwal.dart';
 import 'package:chat/page/do.dart';
 import 'package:chat/page/inJadwal.dart';
@@ -25,13 +25,13 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
-  bool isUser = true;
+  // bool isUser = true;
 
-  @override
-  void initState() {
-    super.initState();
-    _initCheck();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _initCheck();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Assist',
       debugShowCheckedModeBanner: false,
       home: const Scaffold(
-        body: Splash(isUser: false,), //Home(),
+        body: Splash(), //Home(),
       ),
       initialRoute: "/",
       routes: {
@@ -61,13 +61,13 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  void _initCheck() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    if(prefs.getBool("isUser") != null){
-      setState(() {
-        isUser = prefs.getBool("isUser")!;
-      });
+  // void _initCheck() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   if(prefs.getBool("isUser") != null){
+  //     setState(() {
+  //       isUser = prefs.getBool("isUser")!;
+  //     });
     
-    }
-  }
+  //   }
+  // }
 }

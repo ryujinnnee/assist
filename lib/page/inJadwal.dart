@@ -57,7 +57,7 @@ class _JadwalState extends State<Jadwal> {
                 
               ],
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -78,7 +78,7 @@ class _JadwalState extends State<Jadwal> {
                 ),
               ],
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -99,7 +99,7 @@ class _JadwalState extends State<Jadwal> {
             ),
             Column(
               children: [
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 Container(
                   width: 120,
                   height: 120,
