@@ -1,22 +1,11 @@
 import 'package:chat/home.dart';
 import 'package:chat/log/login.dart';
 import 'package:chat/splash.dart';
+import 'package:chat/theme/colorplt.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter/sharedpreferences/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-// class MainPage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Flutter Demo',
-//       theme: ThemeData(
-//         primarySwatch: Colors.blue,
-//       ),
-//       home: MyDashboard(),
-//     );
-//   }
-// }
 class MyDashboard extends StatefulWidget {
   const MyDashboard({Key? key}) : super(key: key);
 
@@ -48,6 +37,7 @@ class _MyDashboardState extends State<MyDashboard> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Home"),
+        backgroundColor: primary,
         centerTitle: true,
         actions: [
           IconButton(
@@ -66,6 +56,9 @@ class _MyDashboardState extends State<MyDashboard> {
                 'selamat Datang  $username',
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
               ),
+            ),
+            const SizedBox(
+              height: 20,
             ),
             RaisedButton(
               onPressed: () {

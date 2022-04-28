@@ -1,13 +1,16 @@
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:chat/home.dart';
+import 'package:chat/hompeg.dart';
 // import 'package:chat/page/addjadwal.dart';
 import 'package:chat/page/do.dart';
 import 'package:chat/page/inJadwal.dart';
 import 'package:chat/page/notip.dart';
+import 'package:chat/splash.dart';
 import 'package:chat/theme/colorplt.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:glassmorphism/glassmorphism.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Setting extends StatefulWidget {
   static const routeName = '/setting';
@@ -18,6 +21,24 @@ class Setting extends StatefulWidget {
 }
 
 class _SettingState extends State<Setting> {
+  late SharedPreferences logindata;
+  late String username;
+  late String nama;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    initial();
+  }
+
+  void initial() async {
+    logindata = await SharedPreferences.getInstance();
+    setState(() {
+      username = logindata.getString('username')!;
+      // nama = logindata.getString('nama')!;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,10 +48,16 @@ class _SettingState extends State<Setting> {
         title: const Text('Setting', textAlign: TextAlign.center),
         actions: [
           IconButton(
-            icon: const Icon(Icons.notifications),
+            icon: Icon(Icons.home_max),
             onPressed: () {
-              Navigator.of(context).pushNamed(Notip.routeName);
+              // Navigator.of(context).pushNamed(Home.routeName);
+              Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (c) => const MyDashboard()));
             },
+          ),
+          IconButton(
+            icon: const Icon(Icons.logout_rounded),
+            onPressed: _logOut,
           ),
         ],
       ),
@@ -396,5 +423,15 @@ class _SettingState extends State<Setting> {
         ),
       ),
     );
+  }
+
+  void _logOut() async {
+    SharedPreferences p = await SharedPreferences.getInstance();
+    logindata.setBool('login', true);
+    p.remove('logindata');
+    dispose();
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (c) => Splash()));
+    //   Navigator.pushReplacement(context, MaterialPageRoute(builder: (c) => const Login()));
   }
 }

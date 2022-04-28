@@ -1,5 +1,6 @@
 import 'package:chat/home.dart';
 import 'package:chat/log/tugas.dart';
+import 'package:chat/loginn.dart';
 //import 'package:chat/login2.dart';
 import 'package:chat/masuk.dart';
 import 'package:chat/page/addjadwal.dart';
@@ -39,7 +40,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Assist',
       debugShowCheckedModeBanner: false,
       home: const Scaffold(
-        body: Splash(), //Home(),
+        body: Splash(),//MyLogin(),//Splash(), //Home(),
       ),
       initialRoute: "/",
       routes: {
