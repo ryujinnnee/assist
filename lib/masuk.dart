@@ -74,6 +74,16 @@ class _MasukState extends State<Masuk> {
   final Pass_controller = TextEditingController();
   late SharedPreferences logindata;
   late bool newuser;
+
+  final snackBar = SnackBar(
+    content: const Text('Yeay Login Berhasil:)'),
+    action: SnackBarAction(
+      label: 'Ok',
+      onPressed: () {
+        // Some code to undo the change.
+      },
+    ),
+  );
   void _success() {
     Map<String, dynamic> payload = new Map<String, dynamic>();
     payload["data"] = "content";
@@ -261,6 +271,7 @@ class _MasukState extends State<Masuk> {
                         if (data['username'] == username &&
                             data['password'] == password) {
                           print('Successfull');
+                          snackBar;
                           _success();
                           logindata.setBool('login', false);
                           logindata.setString('username', username);
@@ -268,9 +279,11 @@ class _MasukState extends State<Masuk> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const MyDashboard()));
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         } else {
                           print('Failed');
-                          _error();
+                          // _error();
+                          // _success(); , _error();
                         }
                       }
                     },

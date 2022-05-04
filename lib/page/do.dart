@@ -23,6 +23,24 @@ class _DoState extends State<Do> {
     todos.add("Test gan");
   }
 
+  final snackBar = SnackBar(
+    content: const Text('Berhasil Menambah'),
+    action: SnackBarAction(
+      label: 'Ok',
+      onPressed: () {
+        // Some code to undo the change.
+      },
+    ),
+  );
+  final snackBar2 = SnackBar(
+    content: const Text('Item Dihapus'),
+    action: SnackBarAction(
+      label: 'Ok',
+      onPressed: () {
+        // Some code to undo the change.
+      },
+    ),
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +79,9 @@ class _DoState extends State<Do> {
                         setState(() {
                           todos.add(input);
                         });
-                        Navigator.of(context).pop();
+                        // snackBar;
+                        // ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                       Navigator.of(context).pop();
                       },
                       child: const Text("Tambah"),
                     )
@@ -96,6 +116,8 @@ class _DoState extends State<Do> {
                     setState(() {
                       todos.removeAt(index);
                     });
+                    snackBar2;
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar2);
                   },
                 ),
               ),
