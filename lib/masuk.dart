@@ -20,47 +20,47 @@ import 'package:flutter_dropdown_alert/model/data_alert.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_dropdown_alert/dropdown_alert.dart';
 
-class Masuk2 extends StatefulWidget {
-  const Masuk2({Key? key}) : super(key: key);
+// class Masuk2 extends StatefulWidget {
+//   const Masuk2({Key? key}) : super(key: key);
 
-  @override
-  State<Masuk2> createState() => _Masuk2State();
-}
+//   @override
+//   State<Masuk2> createState() => _Masuk2State();
+// }
 
-class _Masuk2State extends State<Masuk2> {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Login',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      builder: (context, child) => Stack(
-        children: [child!, const DropdownAlert()],
-      ),
-      home: const Masuk(),
-      routes: {
-        //   "/home": (context) => const Home(),
-        //    "/setting": (context) => const Setting(),
-        // "/jadwal": (context) => const Jadwal(),
-        // "/addjadwal": (context) => const Addjadwal(),
-        // "/injadwal": (context) => const Jadwal(),
-        // "/todo": (context) => const Todo(),
-        Home.routeName: (context) => const Home(),
-        Setting.routeName: (contex) => const Setting(),
-        Addjadwal.routeName: (context) => const Addjadwal(),
-        Jadwal.routeName: (context) => const Jadwal(),
-        Todo.routeName: (context) => const Todo(),
-        Do.routeName: (context) => const Do(),
-        Notip.routeName: (context) => const Notip(),
-        Tugass.routeName: (context) => const Tugass(),
-      },
-    );
-  }
-}
+// class _Masuk2State extends State<Masuk2> {
+//   // This widget is the root of your application.
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Login',
+//       debugShowCheckedModeBanner: false,
+//       theme: ThemeData(
+//         primarySwatch: Colors.orange,
+//         visualDensity: VisualDensity.adaptivePlatformDensity,
+//       ),
+//       builder: (context, child) => Stack(
+//         children: [child!, const DropdownAlert()],
+//       ),
+//       home: const Masuk(),
+//       routes: {
+//         //   "/home": (context) => const Home(),
+//         //    "/setting": (context) => const Setting(),
+//         // "/jadwal": (context) => const Jadwal(),
+//         // "/addjadwal": (context) => const Addjadwal(),
+//         // "/injadwal": (context) => const Jadwal(),
+//         // "/todo": (context) => const Todo(),
+//         Home.routeName: (context) => const Home(),
+//         Setting.routeName: (contex) => const Setting(),
+//         Addjadwal.routeName: (context) => const Addjadwal(),
+//         Jadwal.routeName: (context) => const Jadwal(),
+//         Todo.routeName: (context) => const Todo(),
+//         Do.routeName: (context) => const Do(),
+//         Notip.routeName: (context) => const Notip(),
+//         Tugass.routeName: (context) => const Tugass(),
+//       },
+//     );
+//   }
+// }
 
 class Masuk extends StatefulWidget {
   const Masuk({Key? key}) : super(key: key);
@@ -79,6 +79,15 @@ class _MasukState extends State<Masuk> {
     content: const Text('Yeay Login Berhasil:)'),
     action: SnackBarAction(
       label: 'Ok',
+      onPressed: () {
+        // Some code to undo the change.
+      },
+    ),
+  );
+  final snackBarF = SnackBar(
+    content: const Text('Yah Login gagal '),
+    action: SnackBarAction(
+      label: ':(',
       onPressed: () {
         // Some code to undo the change.
       },
@@ -272,7 +281,7 @@ class _MasukState extends State<Masuk> {
                             data['password'] == password) {
                           print('Successfull');
                           snackBar;
-                          _success();
+                          // _success();
                           logindata.setBool('login', false);
                           logindata.setString('username', username);
                           Navigator.push(
@@ -280,10 +289,16 @@ class _MasukState extends State<Masuk> {
                               MaterialPageRoute(
                                   builder: (context) => const MyDashboard()));
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                          // break;
+                          return;
                         } else {
                           print('Failed');
-                          // _error();
-                          // _success(); , _error();
+                          // snackBarF;
+                          // ScaffoldMessenger.of(context).showSnackBar(snackBarF);
+                          // // _error();
+                          // // _success(); , _error();
+                          // // break;
+                          // return;
                         }
                       }
                     },
