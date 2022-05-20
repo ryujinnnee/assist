@@ -24,6 +24,26 @@ class _SettingState extends State<Setting> {
   late SharedPreferences logindata;
   late String username;
   late String nama;
+
+  final snackBar = SnackBar(
+    content: const Text('Tema Diubah'),
+    // backgroundColor: Colors.transparent,
+    action: SnackBarAction(
+      label: 'Ok',
+      onPressed: () {
+        // Some code to undo the change.
+      },
+    ),
+  );
+  final snackOut = SnackBar(
+    content: const Text('Berhasil Menambah'),
+    action: SnackBarAction(
+      label: 'Ok',
+      onPressed: () {
+        // Some code to undo the change.
+      },
+    ),
+  );
   @override
   void initState() {
     // TODO: implement initState
@@ -51,8 +71,8 @@ class _SettingState extends State<Setting> {
             icon: Icon(Icons.home_max),
             onPressed: () {
               // Navigator.of(context).pushNamed(Home.routeName);
-              Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (c) => const MyDashboard()));
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (c) => const MyDashboard()));
             },
           ),
           IconButton(
@@ -158,7 +178,7 @@ class _SettingState extends State<Setting> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             AvatarGlow(
-              glowColor: Colors.blue,
+              glowColor: Colors.orange,
               endRadius: 90.0,
               duration: const Duration(milliseconds: 2000),
               repeat: true,
@@ -231,6 +251,8 @@ class _SettingState extends State<Setting> {
                               primary = Colors.orange;
                             });
                           }
+                          snackBar;
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         },
                       ),
                     ],
@@ -433,5 +455,8 @@ class _SettingState extends State<Setting> {
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (c) => Splash()));
     //   Navigator.pushReplacement(context, MaterialPageRoute(builder: (c) => const Login()));
+    snackOut;
+    ScaffoldMessenger.of(context).showSnackBar(snackOut);
+    
   }
 }
