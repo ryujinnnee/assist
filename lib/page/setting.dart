@@ -178,7 +178,7 @@ class _SettingState extends State<Setting> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             AvatarGlow(
-              glowColor: Colors.orange,
+              glowColor: Coll.utama,
               endRadius: 90.0,
               duration: const Duration(milliseconds: 2000),
               repeat: true,
@@ -242,6 +242,8 @@ class _SettingState extends State<Setting> {
                               putih2 = Colors.grey[500];
                               // dark = Colors.black;
                               primary = Colors.black;
+                              Coll.utama = Colors.black;
+                              pri = Colors.black;
                             });
                           } else {
                             setState(() {
@@ -249,6 +251,7 @@ class _SettingState extends State<Setting> {
                               putih2 = Colors.white;
                               // dark = Colors.white10;
                               primary = Colors.orange;
+                              Coll.utama = Colors.orange;
                             });
                           }
                           snackBar;

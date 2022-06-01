@@ -69,7 +69,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
      // backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: primary,
+        backgroundColor: primary,//primary,
         centerTitle: true,
         title: const Text('Assist'),
         actions: [
@@ -83,7 +83,7 @@ class _HomeState extends State<Home> {
       ),
       bottomNavigationBar: GlassmorphicContainer(
         width: double.infinity,
-        height: 65,
+        height: 55,
        // borderRadius: borderRadius.c(30),
        linearGradient: LinearGradient(
          begin: Alignment.topCenter,
@@ -119,8 +119,8 @@ class _HomeState extends State<Home> {
                   onPressed: () {
                     Navigator.of(context).pushNamed(Home.routeName);
                   },
-                  icon: Image.asset('assets/img/modern-home.png', 
-                     width: 30, height: 30,       
+                   icon: const Icon(Icons.home,color: Coll.prii,//Image.asset('assets/img/modern-home.png', 
+                  //    width: 30, height: 30,       
                   ),
                   ),
                 ),
@@ -131,9 +131,9 @@ class _HomeState extends State<Home> {
                     Navigator.of(context).pushNamed(Jadwal.routeName);
                   },
                   
-                  icon: Image.asset('assets/img/analytics.png', 
-                     semanticLabel: 'Analytics',
-                     width: 30, height: 30,       
+                  icon: const Icon(Icons.analytics//Image.asset('assets/img/analytics.png', 
+                   //  semanticLabel: 'Analytics',
+                   //  width: 30, height: 30,       
                   ),
                   
                 ),
@@ -143,8 +143,8 @@ class _HomeState extends State<Home> {
                   onPressed: () {
                     Navigator.of(context).pushNamed(Do.routeName);
                   },
-                  icon: Image.asset('assets/img/writing.png', 
-                     width: 30, height: 30,       
+                  icon: const Icon(Icons.task_alt//Image.asset('assets/img/writing.png', 
+                     //width: 30, height: 30,       
                   ),
                 ),
               ),

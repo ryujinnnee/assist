@@ -7,7 +7,7 @@ Color? redup = Colors.grey[800];
 Color? primary = Colors.orange;
 Color? hitam = Colors.black;
 Color? abbu = Colors.white60;
-
+Color? pri = Colors.orange;
 class Coll {
   
   static  Color? putih = Colors.white;
@@ -16,7 +16,8 @@ class Coll {
   static Color? abuu2 = Colors.grey[900];
   static  Color? abuu1 = Colors.grey[700];
   static  Color? abuu = Colors.grey[200];
-  static const  Color utama = Colors.orange;
+  static   Color utama = Colors.orange;
+  static const Color? prii = Colors.orange;
 }
 
 class Constants {
