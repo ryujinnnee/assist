@@ -1,4 +1,5 @@
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:chat/google/Logged.dart';
 import 'package:chat/home.dart';
 import 'package:chat/hompeg.dart';
 // import 'package:chat/page/addjadwal.dart';
@@ -7,6 +8,7 @@ import 'package:chat/page/inJadwal.dart';
 import 'package:chat/page/notip.dart';
 import 'package:chat/splash.dart';
 import 'package:chat/theme/colorplt.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:glassmorphism/glassmorphism.dart';
@@ -61,6 +63,7 @@ class _SettingState extends State<Setting> {
 
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser!;
     return Scaffold(
       backgroundColor: abuw1,
       appBar: AppBar(
@@ -68,11 +71,11 @@ class _SettingState extends State<Setting> {
         title: const Text('Setting', textAlign: TextAlign.center),
         actions: [
           IconButton(
-            icon: Icon(Icons.home_max),
+            icon: Icon(Icons.people),
             onPressed: () {
               // Navigator.of(context).pushNamed(Home.routeName);
               Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (c) => const MyDashboard()));
+                  MaterialPageRoute(builder: (c) => const LoggedInWidget()));
             },
           ),
           IconButton(
@@ -190,9 +193,9 @@ class _SettingState extends State<Setting> {
                 shape: const CircleBorder(),
                 child: CircleAvatar(
                   backgroundColor: Colors.grey[100],
-                  child: Image.asset(
-                    'assets/icon/jisoo.png',
-                    height: 60,
+                  child: Image.network(
+                    user.photoURL!,
+                    // height: 60,
                   ),
                   radius: 40.0,
                 ),

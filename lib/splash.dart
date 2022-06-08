@@ -1,3 +1,6 @@
+import 'package:chat/google/Logged.dart';
+import 'package:chat/google/controller.dart';
+import 'package:chat/google/signup_widget.dart';
 import 'package:chat/home2.dart';
 import 'package:chat/hompeg.dart';
 import 'package:chat/log/login.dart';
@@ -21,7 +24,7 @@ class _SplashState extends State<Splash> {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const Masuk()));
+          MaterialPageRoute(builder: (context) => const CtrlLog()));  //SignupWidget,Masuk
     });
   }
 

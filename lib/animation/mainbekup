@@ -1,6 +1,3 @@
-import 'package:chat/google/controller.dart';
-import 'package:chat/google/gugelLog.dart';
-import 'package:chat/google/signup_widget.dart';
 import 'package:chat/home.dart';
 import 'package:chat/log/tugas.dart';
 import 'package:chat/loginn.dart';
@@ -13,32 +10,33 @@ import 'package:chat/page/notip.dart';
 import 'package:chat/page/setting.dart';
 import 'package:chat/page/todo.dart';
 import 'package:chat/splash.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'notip/notifHandler.dart';
-
-// void main() {
-//   runApp(const MyApp());
-// }
-
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  await initializeNotification();
+void main() {
   runApp(const MyApp());
 }
 
-
-class MyApp extends StatelessWidget {
-  const MyApp({ Key? key }) : super(key: key);
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => ChangeNotifierProvider(
-    create:  (context) => GoogleSignInprovider(),
-    child:  MaterialApp(
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  // This widget is the root of your application.
+  // bool isUser = true;
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _initCheck();
+  // }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       title: 'Assist',
       debugShowCheckedModeBanner: false,
       home: const Scaffold(
@@ -61,6 +59,16 @@ class MyApp extends StatelessWidget {
         Notip.routeName: (context) => const Notip(),
         Tugass.routeName: (context) => const Tugass(),
       },
-    ),
-  );
+    );
+  }
+
+  // void _initCheck() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   if(prefs.getBool("isUser") != null){
+  //     setState(() {
+  //       isUser = prefs.getBool("isUser")!;
+  //     });
+    
+  //   }
+  // }
 }

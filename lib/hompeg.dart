@@ -17,6 +17,8 @@ class _MyDashboardState extends State<MyDashboard> {
   late SharedPreferences logindata;
   late String username;
   late String nama;
+
+  
   @override
   void initState() {
     // TODO: implement initState
@@ -31,7 +33,7 @@ class _MyDashboardState extends State<MyDashboard> {
       // nama = logindata.getString('nama')!;
     });
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

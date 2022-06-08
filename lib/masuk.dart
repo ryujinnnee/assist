@@ -1,3 +1,4 @@
+import 'package:chat/google/gugelLog.dart';
 import 'package:chat/home.dart';
 import 'package:chat/home2.dart';
 import 'package:chat/hompeg.dart';
@@ -17,6 +18,7 @@ import 'package:chat/theme/colorplt.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dropdown_alert/alert_controller.dart';
 import 'package:flutter_dropdown_alert/model/data_alert.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_dropdown_alert/dropdown_alert.dart';
 
@@ -263,48 +265,73 @@ class _MasukState extends State<Masuk> {
                 CircleAvatar(
                   radius: 25,
                   backgroundColor: primary,
-                  child: IconButton(
-                    color: Colors.white,
-                    onPressed: () {
-                      String username = User_controller.text;
-                      String password = Pass_controller.text;
-                      // _success;
-                      // if (username == DummyData.data && password == DummyData.data ) {
-                      //   print('Successfull');
-                      //   logindata.setBool('login', false);
-                      //   logindata.setString('username', username);
-                      //   Navigator.push(context,
-                      //       MaterialPageRoute(builder: (context) => MyDashboard()));
-                      // }
-                      for (var data in dummyData) {
-                        if (data['username'] == username &&
-                            data['password'] == password) {
-                          print('Successfull');
-                          snackBar;
-                          // _success();
-                          logindata.setBool('login', false);
-                          logindata.setString('username', username);
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const MyDashboard()));
-                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                          // break;
-                          return;
-                        } else {
-                          print('Failed');
-                          // snackBarF;
-                          // ScaffoldMessenger.of(context).showSnackBar(snackBarF);
-                          // // _error();
-                          // // _success(); , _error();
-                          // // break;
-                          // return;
-                        }
-                      }
-                    },
-                    icon: Icon(
-                      Icons.arrow_forward,
-                    ),
+                  child: Row(
+                    children: [
+                      IconButton(
+                        color: Colors.white,
+                        iconSize: 20,
+                        onPressed: () {
+                          String username = User_controller.text;
+                          String password = Pass_controller.text;
+                          // _success;
+                          // if (username == DummyData.data && password == DummyData.data ) {
+                          //   print('Successfull');
+                          //   logindata.setBool('login', false);
+                          //   logindata.setString('username', username);
+                          //   Navigator.push(context,
+                          //       MaterialPageRoute(builder: (context) => MyDashboard()));
+                          // }
+                          for (var data in dummyData) {
+                            if (data['username'] == username &&
+                                data['password'] == password) {
+                              print('Successfull');
+                              snackBar;
+                              // _success();
+                              logindata.setBool('login', false);
+                              logindata.setString('username', username);
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const MyDashboard()));
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(snackBar);
+                              // break;
+                              return;
+                            } else {
+                              print('Failed');
+                              // snackBarF;
+                              // ScaffoldMessenger.of(context).showSnackBar(snackBarF);
+                              // // _error();
+                              // // _success(); , _error();
+                              // // break;
+                              // return;
+                            }
+                          }
+                        },
+                        icon: Icon(
+                          Icons.arrow_forward,
+                        ),
+                      ),
+                      
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                CircleAvatar(
+                  radius: 25,
+                  backgroundColor: primary,
+                  child: 
+                    IconButton(
+                          onPressed: () {
+                            final provider = Provider.of<GoogleSignInprovider>(
+                                context,
+                                listen: false);
+                            provider.googLogin();
+                          },
+                          icon: Icon(Icons.gamepad),
                   ),
                 ),
                 // const DropdownAlert(),
