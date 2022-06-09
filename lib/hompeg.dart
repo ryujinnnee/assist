@@ -1,7 +1,9 @@
 import 'package:chat/home.dart';
 import 'package:chat/log/login.dart';
+import 'package:chat/notip/notipPage.dart';
 import 'package:chat/splash.dart';
 import 'package:chat/theme/colorplt.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter/sharedpreferences/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -36,6 +38,7 @@ class _MyDashboardState extends State<MyDashboard> {
   
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser!;
     return Scaffold(
       appBar: AppBar(
         title: Text("Home"),
@@ -43,9 +46,16 @@ class _MyDashboardState extends State<MyDashboard> {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.logout),
+            icon: Icon(Icons.logout), //NotipCenter(),
             onPressed: _logOut,
           ),
+          IconButton(
+            onPressed: () {
+               Navigator.pushReplacement(context,
+                    new MaterialPageRoute(builder: (context) => NotipCenter()));
+            }, 
+            icon: Icon(
+              Icons.notifications)),
         ],
       ),
       body: Padding(
@@ -55,8 +65,9 @@ class _MyDashboardState extends State<MyDashboard> {
           children: <Widget>[
             Center(
               child: Text(
-                'selamat Datang  $username',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                'selamat Datang:) ${user.displayName}',
+                
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.normal),
               ),
             ),
             const SizedBox(

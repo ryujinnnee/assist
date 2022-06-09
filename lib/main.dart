@@ -6,6 +6,8 @@ import 'package:chat/log/tugas.dart';
 import 'package:chat/loginn.dart';
 //import 'package:chat/login2.dart';
 import 'package:chat/masuk.dart';
+import 'package:chat/notip/notipPage.dart';
+// import 'package:chat/notip/notifHandler.dart';
 import 'package:chat/page/addjadwal.dart';
 import 'package:chat/page/do.dart';
 import 'package:chat/page/inJadwal.dart';
@@ -13,7 +15,10 @@ import 'package:chat/page/notip.dart';
 import 'package:chat/page/setting.dart';
 import 'package:chat/page/todo.dart';
 import 'package:chat/splash.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -23,11 +28,29 @@ import 'notip/notifHandler.dart';
 // void main() {
 //   runApp(const MyApp());
 // }
+Future<void> backroundHandler(RemoteMessage message) async {
+  if (kDebugMode) {
+    print(" Pesan dari Background");
+  }
+  if (kDebugMode) {
+    print(message.notification!.title);
+  }
+  if (kDebugMode) {
+    print(message.notification!.body);
+  }
+}
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  
   await initializeNotification();
+  // AuthenticationService service = AuthenticationService(FirebaseAuth.instance);
+  // service.getUserData();
+  debugPrint(
+        "Token nya bang ${(await FirebaseMessaging.instance.getToken()).toString()}");
+  FirebaseMessaging.onBackgroundMessage(backroundHandler);
+  
   runApp(const MyApp());
 }
 
