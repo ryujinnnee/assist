@@ -15,6 +15,7 @@ import 'package:chat/page/notip.dart';
 import 'package:chat/page/setting.dart';
 import 'package:chat/page/todo.dart';
 import 'package:chat/splash.dart';
+import 'package:chat/update/update.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -51,7 +52,7 @@ Future<void> main() async {
         "Token nya bang ${(await FirebaseMessaging.instance.getToken()).toString()}");
   FirebaseMessaging.onBackgroundMessage(backroundHandler);
   
-  runApp(const MyApp());
+  runApp(const MyApp()); //MyApp());StateManag());
 }
 
 

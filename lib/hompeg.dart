@@ -3,6 +3,7 @@ import 'package:chat/log/login.dart';
 import 'package:chat/notip/notipPage.dart';
 import 'package:chat/splash.dart';
 import 'package:chat/theme/colorplt.dart';
+import 'package:chat/update/update.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter/sharedpreferences/main.dart';
@@ -46,8 +47,16 @@ class _MyDashboardState extends State<MyDashboard> {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.logout), //NotipCenter(),
-            onPressed: _logOut,
+            icon: const Icon(Icons.five_g,), //NotipCenter(),
+            // onPressed: _logOut,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const StateManag(),
+                ),
+              );
+            },
           ),
           IconButton(
             onPressed: () {
