@@ -8,6 +8,7 @@ import 'package:chat/page/inJadwal.dart';
 import 'package:chat/page/notip.dart';
 import 'package:chat/splash.dart';
 import 'package:chat/theme/colorplt.dart';
+import 'package:chat/update/screens/home_todo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -80,7 +81,11 @@ class _SettingState extends State<Setting> {
           ),
           IconButton(
             icon: const Icon(Icons.logout_rounded),
-            onPressed: _logOut,
+            // onPressed: _logOut,
+            onPressed: () {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (c) => const HomeScreen()));
+            },
           ),
         ],
       ),
