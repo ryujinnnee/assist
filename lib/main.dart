@@ -15,6 +15,8 @@ import 'package:chat/page/notip.dart';
 import 'package:chat/page/setting.dart';
 import 'package:chat/page/todo.dart';
 import 'package:chat/splash.dart';
+import 'package:chat/update/providers/todo_providers.dart';
+import 'package:chat/update/screens/home_todo.dart';
 import 'package:chat/update/update.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -61,12 +63,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ChangeNotifierProvider(
-    create:  (context) => GoogleSignInprovider(),
+    create:  (context) => TodoListProvider(), //TodoListProvider(),  GoogleSignInprovider(),
     child:  MaterialApp(
       title: 'Assist',
       debugShowCheckedModeBanner: false,
       home: const Scaffold(
-        body: Splash(),//MyLogin(),//Splash(), //Home(),
+        body: HomeScreen(),//MyLogin(),//Splash(), //Home(),
       ),
       initialRoute: "/",
       routes: {
