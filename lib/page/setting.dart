@@ -7,6 +7,7 @@ import 'package:chat/hompeg.dart';
 import 'package:chat/page/do.dart';
 import 'package:chat/page/inJadwal.dart';
 import 'package:chat/page/notip.dart';
+import 'package:chat/res/main_page.dart';
 import 'package:chat/splash.dart';
 import 'package:chat/theme/colorplt.dart';
 import 'package:chat/update/screens/home_todo.dart';
@@ -93,6 +94,13 @@ class _SettingState extends State<Setting> {
             onPressed: () {
               Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (c) => const HomeRes()));
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.home),
+            onPressed: () {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (c) => const MainPageRes()));
             },
           ),
         ],
