@@ -1,4 +1,5 @@
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:chat/RestApi/home_res.dart';
 import 'package:chat/google/Logged.dart';
 import 'package:chat/home.dart';
 import 'package:chat/hompeg.dart';
@@ -85,6 +86,13 @@ class _SettingState extends State<Setting> {
             onPressed: () {
               Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (c) => const HomeScreen()));
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.api),
+            onPressed: () {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (c) => const HomeRes()));
             },
           ),
         ],

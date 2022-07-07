@@ -68,7 +68,7 @@ class MyApp extends StatelessWidget {
       title: 'Assist',
       debugShowCheckedModeBanner: false,
       home: const Scaffold(
-        body: HomeScreen(),//MyLogin(),//Splash(), //Home(),
+        body: Splash(),//HomeScreen(),//MyLogin(),//Splash(), //Home(),
       ),
       initialRoute: "/",
       routes: {
