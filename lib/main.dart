@@ -63,7 +63,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ChangeNotifierProvider(
-    create:  (context) => TodoListProvider(), //TodoListProvider(),  GoogleSignInprovider(),
+    create:  (context) => GoogleSignInprovider(), //TodoListProvider(),  GoogleSignInprovider(),
     child:  MaterialApp(
       title: 'Assist',
       debugShowCheckedModeBanner: false,
