@@ -5,6 +5,7 @@ Color? putih2 = Colors.white;
 Color? dark = Colors.white10;
 Color? redup = Colors.grey[800];
 Color? primary = Colors.orange;
+Color? primary2 = Color.fromARGB(255, 214, 129, 2);
 Color? hitam = Colors.black;
 Color? abbu = Colors.white60;
 Color? pri = Colors.orange;

@@ -1,6 +1,7 @@
 import 'package:chat/home.dart';
 import 'package:chat/log/login.dart';
 import 'package:chat/notip/notipPage.dart';
+import 'package:chat/page/ui/ui/screens/beranda.dart';
 import 'package:chat/splash.dart';
 import 'package:chat/theme/colorplt.dart';
 import 'package:chat/update/update.dart';
@@ -86,7 +87,7 @@ class _MyDashboardState extends State<MyDashboard> {
               onPressed: () {
                 
                 Navigator.pushReplacement(context,
-                    new MaterialPageRoute(builder: (context) => Home()));
+                    new MaterialPageRoute(builder: (context) => BerandaUI())); //Home
               },
               child: Text('Ke home'),
             )

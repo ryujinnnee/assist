@@ -7,6 +7,8 @@ import 'package:chat/hompeg.dart';
 import 'package:chat/page/do.dart';
 import 'package:chat/page/inJadwal.dart';
 import 'package:chat/page/notip.dart';
+import 'package:chat/page/ui/ui/widgets/nav_bottom.dart';
+import 'package:chat/page/ui/ui/widgets/scroll_brush.dart';
 import 'package:chat/res/main_page.dart';
 import 'package:chat/splash.dart';
 import 'package:chat/theme/colorplt.dart';
@@ -63,6 +65,11 @@ class _SettingState extends State<Setting> {
       // nama = logindata.getString('nama')!;
     });
   }
+  int balanceBalance = 0;
+
+  bool isBrush = false;
+
+  bool isCollapseNavBottom = true;
 
   @override
   Widget build(BuildContext context) {
@@ -105,96 +112,96 @@ class _SettingState extends State<Setting> {
           ),
         ],
       ),
-      bottomNavigationBar: GlassmorphicContainer(
-        width: double.infinity,
-        height: 65,
-        // borderRadius: borderRadius.c(30),
-        linearGradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Constants.kWhiteColor.withOpacity(0.1),
-            Constants.kWhiteColor.withOpacity(0.1),
-          ],
-        ),
-        blur: 30,
-        borderGradient: const LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Constants.kPinkColor,
-            Constants.kGreenColor,
-          ],
-        ),
-        borderRadius: 0, border: 0,
-        child: BottomAppBar(
-          color: Colors.transparent,
-          notchMargin: 4,
-          elevation: 0,
-          child: Row(
-            //padding: const EdgeInsets.symmetric(horizontal: 20),
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            //crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              //SizedBox(width: 20),
-              Expanded(
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(Home.routeName);
-                  },
-                  icon: Image.asset(
-                    'assets/img/modern-home.png',
-                    width: 30,
-                    height: 30,
-                  ),
-                ),
-              ),
+      // bottomNavigationBar: GlassmorphicContainer(
+      //   width: double.infinity,
+      //   height: 65,
+      //   // borderRadius: borderRadius.c(30),
+      //   linearGradient: LinearGradient(
+      //     begin: Alignment.topCenter,
+      //     end: Alignment.bottomCenter,
+      //     colors: [
+      //       Constants.kWhiteColor.withOpacity(0.1),
+      //       Constants.kWhiteColor.withOpacity(0.1),
+      //     ],
+      //   ),
+      //   blur: 30,
+      //   borderGradient: const LinearGradient(
+      //     begin: Alignment.topCenter,
+      //     end: Alignment.bottomCenter,
+      //     colors: [
+      //       Constants.kPinkColor,
+      //       Constants.kGreenColor,
+      //     ],
+      //   ),
+      //   borderRadius: 0, border: 0,
+      //   child: BottomAppBar(
+      //     color: Colors.transparent,
+      //     notchMargin: 4,
+      //     elevation: 0,
+      //     child: Row(
+      //       //padding: const EdgeInsets.symmetric(horizontal: 20),
+      //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+      //       //crossAxisAlignment: CrossAxisAlignment.end,
+      //       children: [
+      //         //SizedBox(width: 20),
+      //         Expanded(
+      //           child: IconButton(
+      //             onPressed: () {
+      //               Navigator.of(context).pushNamed(Home.routeName);
+      //             },
+      //             icon: Image.asset(
+      //               'assets/img/modern-home.png',
+      //               width: 30,
+      //               height: 30,
+      //             ),
+      //           ),
+      //         ),
 
-              Expanded(
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(Jadwal.routeName);
-                  },
-                  icon: Image.asset(
-                    'assets/img/analytics.png',
-                    semanticLabel: 'Analytics',
-                    width: 30,
-                    height: 30,
-                  ),
-                ),
-              ),
-              Expanded(
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(Do.routeName);
-                  },
-                  icon: Image.asset(
-                    'assets/img/writing.png',
-                    width: 30,
-                    height: 30,
-                  ),
-                ),
-              ),
-              Expanded(
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(Setting.routeName);
-                  },
-                  // icon: const Icon(
-                  //   Icons.settings,
-                  //   color: Constants.kPinkColor,
-                  // ),
-                  icon: Image.asset(
-                    'assets/img/setting.png',
-                    width: 30,
-                    height: 30,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+      //         Expanded(
+      //           child: IconButton(
+      //             onPressed: () {
+      //               Navigator.of(context).pushNamed(Jadwal.routeName);
+      //             },
+      //             icon: Image.asset(
+      //               'assets/img/analytics.png',
+      //               semanticLabel: 'Analytics',
+      //               width: 30,
+      //               height: 30,
+      //             ),
+      //           ),
+      //         ),
+      //         Expanded(
+      //           child: IconButton(
+      //             onPressed: () {
+      //               Navigator.of(context).pushNamed(Do.routeName);
+      //             },
+      //             icon: Image.asset(
+      //               'assets/img/writing.png',
+      //               width: 30,
+      //               height: 30,
+      //             ),
+      //           ),
+      //         ),
+      //         Expanded(
+      //           child: IconButton(
+      //             onPressed: () {
+      //               Navigator.of(context).pushNamed(Setting.routeName);
+      //             },
+      //             // icon: const Icon(
+      //             //   Icons.settings,
+      //             //   color: Constants.kPinkColor,
+      //             // ),
+      //             icon: Image.asset(
+      //               'assets/img/setting.png',
+      //               width: 30,
+      //               height: 30,
+      //             ),
+      //           ),
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
       body: Container(
         color: Colors.grey[200],
         child: Column(
@@ -423,51 +430,73 @@ class _SettingState extends State<Setting> {
                 ],
               ),
             ),
-            const SizedBox(height: 2),
-            Container(
-              height: 88,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4), color: putih2),
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  //const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.remove,
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        size: 15,
-                      ),
-                      const Text(
-                        'Hapus Semua Data ',
-                        //'Instalasi Flutter, Dart, Widget',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w100,
-                          color: Color.fromARGB(255, 0, 0, 0),
-                        ),
-                      ),
-                      IconButton(
-                        icon: const Icon(
-                          Icons.delete_forever,
-                          color: Color.fromARGB(255, 104, 102, 102),
-                          size: 20,
-                        ),
-                        onPressed: () {},
-                      ),
-                    ],
-                  ),
-                  //const SizedBox(height: 20)
-                ],
-              ),
-            ),
+            const SizedBox(height: 45),
+            // Container(
+            //   height: 88,
+            //   width: double.infinity,
+            //   decoration: BoxDecoration(
+            //       borderRadius: BorderRadius.circular(4), color: putih2),
+            //   padding: const EdgeInsets.all(20),
+            //   child: Column(
+            //     mainAxisAlignment: MainAxisAlignment.start,
+            //     crossAxisAlignment: CrossAxisAlignment.start,
+            //     children: [
+            //       //const SizedBox(height: 20),
+            //       Row(
+            //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //         crossAxisAlignment: CrossAxisAlignment.center,
+            //         children: [
+            //           const Icon(
+            //             Icons.remove,
+            //             color: Color.fromARGB(255, 0, 0, 0),
+            //             size: 15,
+            //           ),
+            //           const Text(
+            //             'Hapus Semua Data ',
+            //             //'Instalasi Flutter, Dart, Widget',
+            //             textAlign: TextAlign.left,
+            //             style: TextStyle(
+            //               fontSize: 16,
+            //               fontWeight: FontWeight.w100,
+            //               color: Color.fromARGB(255, 0, 0, 0),
+            //             ),
+            //           ),
+            //           IconButton(
+            //             icon: const Icon(
+            //               Icons.delete_forever,
+            //               color: Color.fromARGB(255, 104, 102, 102),
+            //               size: 20,
+            //             ),
+            //             onPressed: () {},
+            //           ),
+            //         ],
+            //       ),
+            //       //const SizedBox(height: 20)
+            //     ],
+            //   ),
+            // ),
+            if (isBrush)
+            const Align(alignment: Alignment.topCenter, child: ScrollBrush()),
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: GestureDetector(
+                onPanUpdate: (details) {
+                  if (details.delta.dy < 0) {
+                    isCollapseNavBottom = false;
+                    setState(() {});
+                  }
+
+                  if (details.delta.dy > 0) {
+                    isCollapseNavBottom = true;
+                    setState(() {});
+                  }
+                },
+                child: NavBottom(
+                  isCollapse: isCollapseNavBottom,
+                )),
+          ),
           ],
         ),
       ),

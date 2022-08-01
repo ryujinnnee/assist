@@ -126,7 +126,7 @@ class _MasukState extends State<Masuk> {
     print(newuser);
     if (newuser == false) {
       Navigator.pushReplacement(
-          context, new MaterialPageRoute(builder: (context) => MyDashboard()));
+          context, new MaterialPageRoute(builder: (context) => const MyDashboard()));
     }
   }
 

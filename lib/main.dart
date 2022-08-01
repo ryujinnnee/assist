@@ -1,3 +1,4 @@
+import 'package:chat/google/Logged.dart';
 import 'package:chat/google/controller.dart';
 import 'package:chat/google/gugelLog.dart';
 import 'package:chat/google/signup_widget.dart';
@@ -14,6 +15,7 @@ import 'package:chat/page/inJadwal.dart';
 import 'package:chat/page/notip.dart';
 import 'package:chat/page/setting.dart';
 import 'package:chat/page/todo.dart';
+import 'package:chat/page/ui/ui/screens/beranda.dart';
 import 'package:chat/splash.dart';
 import 'package:chat/update/providers/todo_providers.dart';
 import 'package:chat/update/screens/home_todo.dart';
@@ -84,8 +86,10 @@ class MyApp extends StatelessWidget {
         Jadwal.routeName: (context) => const Jadwal(),
         Todo.routeName: (context) => const Todo(),
         Do.routeName: (context) => const Do(),
+        BerandaUI.routeName: (context) => const BerandaUI(),
         Notip.routeName: (context) => const Notip(),
         Tugass.routeName: (context) => const Tugass(),
+        LoggedInWidget.routeName: (context) => const LoggedInWidget(),
       },
     ),
   );

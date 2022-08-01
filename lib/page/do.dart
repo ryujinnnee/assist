@@ -2,6 +2,7 @@ import 'package:chat/home.dart';
 import 'package:chat/page/addjadwal.dart';
 import 'package:chat/page/inJadwal.dart';
 import 'package:chat/page/setting.dart';
+import 'package:chat/page/ui/ui/widgets/nav_bottom.dart';
 import 'package:chat/theme/colorplt.dart';
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
@@ -41,6 +42,10 @@ class _DoState extends State<Do> {
       },
     ),
   );
+
+  bool isBrush = false;
+
+  bool isCollapseNavBottom = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,10 +86,10 @@ class _DoState extends State<Do> {
                         });
                         // snackBar;
                         // ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                       Navigator.of(context).pop();
+                        Navigator.of(context).pop();
                       },
                       child: const Text("Tambah"),
-                    )
+                    ),
                   ],
                 );
               });
@@ -99,122 +104,147 @@ class _DoState extends State<Do> {
         itemBuilder: (BuildContext context, int index) {
           return Dismissible(
             key: Key(todos[index]),
-            child: Card(
-              // color: Colors.white,
-              elevation: 4,
-              margin: const EdgeInsets.all(8),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8)),
-              child: ListTile(
-                title: Text(todos[index]),
-                trailing: IconButton(
-                  icon: const Icon(
-                    Icons.delete_forever,
-                    color: Colors.red,
+            child: Column(
+              children: [
+                Card(
+                  // color: Colors.white,
+                  elevation: 4,
+                  margin: const EdgeInsets.all(8),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)),
+                  child: ListTile(
+                    title: Text(todos[index]),
+                    trailing: IconButton(
+                      icon: const Icon(
+                        Icons.delete_forever,
+                        color: Colors.red,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          todos.removeAt(index);
+                        });
+                        snackBar2;
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar2);
+                      },
+                    ),
                   ),
-                  onPressed: () {
-                    setState(() {
-                      todos.removeAt(index);
-                    });
-                    snackBar2;
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar2);
-                  },
                 ),
-              ),
+                // Positioned(
+                //       left: 0,
+                //       right: 0,
+                //       bottom: 0,
+                //       child: GestureDetector(
+                //           onPanUpdate: (details) {
+                //             if (details.delta.dy < 0) {
+                //               isCollapseNavBottom = false;
+                //               setState(() {});
+                //             }
+
+                //             if (details.delta.dy > 0) {
+                //               isCollapseNavBottom = true;
+                //               setState(() {});
+                //             }
+                //           },
+                //           child: NavBottom(
+                //             isCollapse: isCollapseNavBottom,
+                //           )),
+                //     ),
+              ],
             ),
           );
+          
         },
       ),
-      bottomNavigationBar: GlassmorphicContainer(
-        width: double.infinity,
-        height: 65,
-        // borderRadius: borderRadius.c(30),
-        linearGradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Constants.kWhiteColor.withOpacity(0.1),
-            Constants.kWhiteColor.withOpacity(0.1),
-          ],
-        ),
-        blur: 30,
-        borderGradient: const LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Constants.kPinkColor,
-            Constants.kGreenColor,
-          ],
-        ),
-        borderRadius: 0, border: 0,
-        child: BottomAppBar(
-          color: Colors.transparent,
-          notchMargin: 4,
-          elevation: 0,
-          child: Row(
-            //padding: const EdgeInsets.symmetric(horizontal: 20),
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            //crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              //SizedBox(width: 20),
-              Expanded(
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(Home.routeName);
-                  },
-                  icon: Image.asset(
-                    'assets/img/modern-home.png',
-                    width: 30,
-                    height: 30,
-                  ),
-                ),
-              ),
+      // bottomNavigationBar: GlassmorphicContainer(
+      //   width: double.infinity,
+      //   height: 65,
+      //   // borderRadius: borderRadius.c(30),
+      //   linearGradient: LinearGradient(
+      //     begin: Alignment.topCenter,
+      //     end: Alignment.bottomCenter,
+      //     colors: [
+      //       Constants.kWhiteColor.withOpacity(0.1),
+      //       Constants.kWhiteColor.withOpacity(0.1),
+      //     ],
+      //   ),
+      //   blur: 30,
+      //   borderGradient: const LinearGradient(
+      //     begin: Alignment.topCenter,
+      //     end: Alignment.bottomCenter,
+      //     colors: [
+      //       Constants.kPinkColor,
+      //       Constants.kGreenColor,
+      //     ],
+      //   ),
+      //   borderRadius: 0, border: 0,
+      //   child: BottomAppBar(
+      //     color: Colors.transparent,
+      //     notchMargin: 4,
+      //     elevation: 0,
+      //     child: Row(
+      //       //padding: const EdgeInsets.symmetric(horizontal: 20),
+      //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+      //       //crossAxisAlignment: CrossAxisAlignment.end,
+      //       children: [
+      //         //SizedBox(width: 20),
+      //         Expanded(
+      //           child: IconButton(
+      //             onPressed: () {
+      //               Navigator.of(context).pushNamed(Home.routeName);
+      //             },
+      //             icon: Image.asset(
+      //               'assets/img/modern-home.png',
+      //               width: 30,
+      //               height: 30,
+      //             ),
+      //           ),
+      //         ),
 
-              Expanded(
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(Jadwal.routeName);
-                  },
-                  icon: Image.asset(
-                    'assets/img/analytics.png',
-                    semanticLabel: 'Analytics',
-                    width: 30,
-                    height: 30,
-                  ),
-                ),
-              ),
-              Expanded(
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(Do.routeName);
-                  },
-                  icon: Image.asset(
-                    'assets/img/writing.png',
-                    width: 30,
-                    height: 30,
-                  ),
-                ),
-              ),
-              Expanded(
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(Setting.routeName);
-                  },
-                  // icon: const Icon(
-                  //   Icons.settings,
-                  //   color: Constants.kPinkColor,
-                  // ),
-                  icon: Image.asset(
-                    'assets/img/setting.png',
-                    width: 30,
-                    height: 30,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+      //         Expanded(
+      //           child: IconButton(
+      //             onPressed: () {
+      //               Navigator.of(context).pushNamed(Jadwal.routeName);
+      //             },
+      //             icon: Image.asset(
+      //               'assets/img/analytics.png',
+      //               semanticLabel: 'Analytics',
+      //               width: 30,
+      //               height: 30,
+      //             ),
+      //           ),
+      //         ),
+      //         Expanded(
+      //           child: IconButton(
+      //             onPressed: () {
+      //               Navigator.of(context).pushNamed(Do.routeName);
+      //             },
+      //             icon: Image.asset(
+      //               'assets/img/writing.png',
+      //               width: 30,
+      //               height: 30,
+      //             ),
+      //           ),
+      //         ),
+      //         Expanded(
+      //           child: IconButton(
+      //             onPressed: () {
+      //               Navigator.of(context).pushNamed(Setting.routeName);
+      //             },
+      //             // icon: const Icon(
+      //             //   Icons.settings,
+      //             //   color: Constants.kPinkColor,
+      //             // ),
+      //             icon: Image.asset(
+      //               'assets/img/setting.png',
+      //               width: 30,
+      //               height: 30,
+      //             ),
+      //           ),
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
     );
   }
 }
