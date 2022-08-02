@@ -2,6 +2,7 @@ import 'package:chat/google/Logged.dart';
 import 'package:chat/google/signup_widget.dart';
 import 'package:chat/hompeg.dart';
 import 'package:chat/masuk.dart';
+import 'package:chat/model/log/loginpek.dart';
 import 'package:chat/page/ui/ui/screens/beranda.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class CtrlLog extends StatelessWidget {
             } else if (snapshot.hasError) {
               return const Center(child: Text('Error'));
             } else {
-              return const Masuk(); //SignupWidget
+              return const Teste();//Teste(); //Masuk(); //SignupWidget
             }
           }));
 }

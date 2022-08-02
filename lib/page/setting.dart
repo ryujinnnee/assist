@@ -3,10 +3,13 @@ import 'package:chat/RestApi/home_res.dart';
 import 'package:chat/google/Logged.dart';
 import 'package:chat/home.dart';
 import 'package:chat/hompeg.dart';
+import 'package:chat/model/log/loginpek.dart';
+// import 'package:chat/model/screen/welcome.dart';
 // import 'package:chat/page/addjadwal.dart';
 import 'package:chat/page/do.dart';
 import 'package:chat/page/inJadwal.dart';
 import 'package:chat/page/notip.dart';
+import 'package:chat/page/ui/common/my_colors.dart';
 import 'package:chat/page/ui/ui/widgets/nav_bottom.dart';
 import 'package:chat/page/ui/ui/widgets/scroll_brush.dart';
 import 'package:chat/res/main_page.dart';
@@ -275,6 +278,12 @@ class _SettingState extends State<Setting> {
                               primary = Colors.black;
                               Coll.utama = Colors.black;
                               pri = Colors.black;
+                              MyColors.ping = Colors.black;
+                              MyColors.ping2 = Colors.black;
+                              MyColors.ping3 = Colors.black;
+                              MyColors.blackText = Colors.white;
+                              MyColors.white = Colors.black;
+                              // Color.fromARGB(255, 201, 79, 120) = Colors.black;
                             });
                           } else {
                             setState(() {
@@ -283,6 +292,11 @@ class _SettingState extends State<Setting> {
                               // dark = Colors.white10;
                               primary = Colors.orange;
                               Coll.utama = Colors.orange;
+                              MyColors.ping = Colors.pink;
+                              MyColors.ping2 = Colors.red.shade400;
+                              MyColors.ping3 = Colors.pinkAccent.shade400;
+                              MyColors.blackText = Colors.black;
+                              MyColors.white = Colors.white;
                             });
                           }
                           snackBar;

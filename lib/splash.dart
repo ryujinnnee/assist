@@ -39,10 +39,15 @@ class _SplashState extends State<Splash> {
             const SizedBox(
               height: 100,
             ),
-            Icon(
-              Icons.task,
-              size: 100,
-              color: primary,
+            // Icon(
+            //   Icons.task,
+            //   size: 100,
+            //   color: primary,
+            // ),
+            Image.asset(
+              'assets/img/tinder_logo.png',
+              width: 100,
+              height: 100,
             ),
             const SizedBox(
               height: 400,

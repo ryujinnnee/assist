@@ -113,7 +113,7 @@ class _MasukState extends State<Masuk> {
   @override
   void initState() {
     super.initState();
-    cekLogin();
+    // cekLogin();
     AlertController.onTabListener(
         (Map<String, dynamic>? payload, TypeAlert type) {
       print("$payload - $type");
@@ -126,7 +126,7 @@ class _MasukState extends State<Masuk> {
     print(newuser);
     if (newuser == false) {
       Navigator.pushReplacement(
-          context, new MaterialPageRoute(builder: (context) => const MyDashboard()));
+          context, MaterialPageRoute(builder: (context) => const Setting()));
     }
   }
 

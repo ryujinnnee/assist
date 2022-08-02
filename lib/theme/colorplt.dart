@@ -9,6 +9,7 @@ Color? primary2 = Color.fromARGB(255, 214, 129, 2);
 Color? hitam = Colors.black;
 Color? abbu = Colors.white60;
 Color? pri = Colors.orange;
+Color? ping = Colors.pink;
 class Coll {
   
   static  Color? putih = Colors.white;

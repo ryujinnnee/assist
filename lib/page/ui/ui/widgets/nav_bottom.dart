@@ -3,6 +3,7 @@ import 'package:chat/hompeg.dart';
 import 'package:chat/page/do.dart';
 import 'package:chat/page/setting.dart';
 import 'package:chat/page/ui/ui/screens/beranda.dart';
+import 'package:chat/page/ui/ui/screens/tudu.dart';
 import 'package:flutter/material.dart';
 import 'package:chat/page/ui/common/my_colors.dart';
 import 'package:chat/page/ui/common/my_style.dart';
@@ -89,7 +90,7 @@ class NavBottom extends StatelessWidget {
                       child: IconButton(
                         onPressed: () {
                           Navigator.of(context)
-                              .pushNamed(Do.routeName);
+                              .pushNamed(Tuwduh.routeName); //Do.routeName
                         },
                         icon: Image.asset("assets/images/ic_indosend.png"),
                         iconSize: 50,
@@ -162,12 +163,18 @@ class NavBottom extends StatelessWidget {
                     children: [
                       SizedBox(width: 5),
                       Expanded(
-                        child: CustomButtonIcon(
-                          action: () {},
-                          iconPath: "assets/images/ic_indoride.png",
-                          text: "IndoRide",
-                          height: 50,
-                          width: 50,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.of(context)
+                                .pushReplacementNamed(BerandaUI.routeName);
+                          },
+                          child: CustomButtonIcon(
+                            action: () {},
+                            iconPath: "assets/images/ic_indoride.png",
+                            text: "IndoRide",
+                            height: 50,
+                            width: 50,
+                          ),
                         ),
                       ),
                       Expanded(
