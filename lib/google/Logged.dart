@@ -6,6 +6,7 @@ import 'package:chat/theme/colorplt.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoggedInWidget extends StatefulWidget {
   static const routeName = '/logged';
@@ -30,11 +31,13 @@ class _LoggedInWidgetState extends State<LoggedInWidget> {
         actions: [
           IconButton(
             icon: Icon(Icons.logout),
-            onPressed: () {
+            onPressed: () async {
               // FirebaseAuth.instance.signOut();
               final provider =
                   Provider.of<GoogleSignInprovider>(context, listen: false);
               provider.logout();
+              final prefs = await SharedPreferences.getInstance();
+                              prefs.setBool('showboarding', false);
               Navigator.pushReplacement(
                   context, MaterialPageRoute(builder: (c) => Splash()));
             },

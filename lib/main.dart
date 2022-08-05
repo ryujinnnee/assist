@@ -49,7 +49,8 @@ Future<void> backroundHandler(RemoteMessage message) async {
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  
+  // final prefs = await SharedPreferences.getInstance();
+  //    final showboarding = prefs.getBool('showboarding') ?? false;
   await initializeNotification();
   // AuthenticationService service = AuthenticationService(FirebaseAuth.instance);
   // service.getUserData();
