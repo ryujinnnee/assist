@@ -6,6 +6,7 @@ import 'package:chat/theme/colorplt.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dropdown_alert/alert_controller.dart';
 import 'package:flutter_dropdown_alert/model/data_alert.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
 class Teste extends StatefulWidget {
@@ -63,13 +64,18 @@ class _TesteState extends State<Teste> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 620),
-                      child: Image.asset(
-                        'assets/img/tinder_logo.png',
-                        fit: BoxFit.fitWidth,
-                        alignment: Alignment.topCenter,
-                        color: putih2,
-                        scale: 1.3,
+                      padding: const EdgeInsets.only(bottom: 550),
+                      // child: Image.asset(
+                      //   'assets/img/tinder_logo.png',
+                      //   fit: BoxFit.fitWidth,
+                      //   alignment: Alignment.topCenter,
+                      //   color: putih2,
+                      //   scale: 1.3,
+                      // ),
+                      child: Lottie.network(
+                        'https://assets10.lottiefiles.com/packages/lf20_qogkaqmb.json',
+                        width: 200,
+                        // height: 100,
                       ),
                     ),
 
@@ -92,15 +98,15 @@ class _TesteState extends State<Teste> {
                           ),
                           //Botão google
 
-                           LoginButton(
+                          LoginButton(
                             texto: 'LOG IN WITH GOOGLE',
                             imagem: AssetImage('assets/img/google.png'),
                             cor: MyColors.blackText,
                             onPressed: () {
-                              final provider = Provider.of<GoogleSignInprovider>(
-                                context,
-                                listen: false);
-                            provider.googLogin();
+                              final provider =
+                                  Provider.of<GoogleSignInprovider>(context,
+                                      listen: false);
+                              provider.googLogin();
                             },
                             // background: MyColors.white,
                             // key: Key('google'),
@@ -112,16 +118,16 @@ class _TesteState extends State<Teste> {
                             height: 15,
                           ),
                           LoginButton(
-                              texto: 'LOG IN WITH FACEBOOK',
-                              imagem: const AssetImage(
-                                  'assets/img/facebook.png'),
-                              cor: MyColors.blackText,),
+                            texto: 'LOG IN WITH FACEBOOK',
+                            imagem: const AssetImage('assets/img/facebook.png'),
+                            cor: MyColors.blackText,
+                          ),
                           //Espaçador
                           const SizedBox(
                             height: 15,
                           ),
                           //Botão número
-                           LoginButton(
+                          LoginButton(
                             texto: 'LOG IN WITH YOUR PHONE',
                             imagem: AssetImage('assets/img/chats.png'),
                             cor: MyColors.blackText,
